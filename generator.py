@@ -15,14 +15,12 @@ class Generator(nn.Module):
             nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
             nn.ConvTranspose2d(in_channels=128,out_channels=64,kernel_size=4,stride=2,padding=1,bias=False),
-            nn.BatchNorm2d(128),
+            nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
-            nn.ConvTranspose2d(in_channels=64,out_channels=3,kernel_size=4,stride=2,padding=1,bias=False),
+            nn.ConvTranspose2d(in_channels=64,out_channels=1,kernel_size=4,stride=2,padding=1,bias=False),
             nn.Tanh()
         )
     
     def forward(self,x):
         output = self.main(x)
         return output
-
-c = Generator()
